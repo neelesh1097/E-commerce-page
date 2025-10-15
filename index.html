@@ -25,6 +25,7 @@
       <div class="image">
         <div class="image1"><img src="./images/icon-cart.svg" alt="" srcset=""></div>
         <div class="image2"><img src="./images/image-avatar.png" alt="" srcset=""></div>
+         <div class="image3"><img src="./images/icon-menu.svg" alt="" srcset=""></div>
       </div>
       
     </div>
@@ -66,6 +67,8 @@
             <span class="count">0</span>
             <button class="plus"><img src="./images/icon-plus.svg" alt="" srcset=""></button>
           </div>
+                      <button class="plus"><img src="./images/icon-menu.svg" alt="" srcset=""></button>
+          </div>
 
           <button class="add-to-cart">
             <img src="./images/icon-cart.svg" alt="cart icon" />
@@ -76,5 +79,24 @@
     </main>
 
 </body>
+
+
+ <script>
+  const menuIcon = document.querySelector(".image3");
+  const navLinks = document.querySelector(".ul-link");
+
+  menuIcon.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !menuIcon.contains(e.target)) {
+      navLinks.classList.remove("active");
+    }
+  });
+</script>
+
+
 
 </html>

@@ -18,7 +18,7 @@
   --grayish-blue: hsl(220, 14%, 75%);
   --light-grayish-blue: hsl(223, 64%, 98%);
   --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 0%);
+  --black: hsla(0, 90%, 41%, 0.162);
   --black-75: hsla(0, 0%, 0%, 0.75);
 
   /* Font */
@@ -166,12 +166,19 @@ height:40px;
 }
 
 
-/* =============================
-   🧩 PRODUCT DETAILS STYLING
-============================== */
+.image3 {
+  display: none;
+  cursor: pointer;
+}
+
+.image3 img {
+  width: 25px;
+  height: 25px;
+}
+
 
 .product-details {
- 
+ max-width:600px;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -318,14 +325,76 @@ height:40px;
   width: 100%;
 }
 
-/* =============================
-   📱 RESPONSIVE DESIGN
-============================== */
 
-@media (max-width: 768px) {
+
+/* ===============================
+   📱 Responsive Design (Mobile)
+=============================== */
+@media (max-width: 788px) {
+
+  /* ===== 🌐 Navbar ===== */
+  .navbar {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    position: relative;
+  }
+
+  /* Hide the desktop nav by default */
+  .ul-link {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    display: none;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+  }
+
+  /* Show menu when active */
+  .ul-link.active {
+    display: flex;
+  }
+
+  /* Show the hamburger (menu) icon */
+  .image3 {
+    display: block;
+    cursor: pointer;
+  }
+
+  .image3 img {
+    width: 25px;
+    height: 25px;
+  }
+
+  /* Adjust cart + avatar alignment */
+  .image {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 0;
+  }
+
+  .image1 img,
+  .image2 img {
+    width: 25px;
+    height: 25px;
+  }
+
+  .nav-brand img {
+    width: 110px;
+  }
+
+  /* ===== 🛍 Product Layout ===== */
   .product {
     flex-direction: column;
-    padding: 2rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
   }
 
   .product-gallery,
@@ -336,30 +405,59 @@ height:40px;
   .main-image img {
     width: 100%;
     height: auto;
+    border-radius: var(--border-radius);
   }
 
+  .thumbnail-gallery {
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  /* ===== 💵 Product Details ===== */
+  .product-details {
+    padding-top: 1.5rem;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .product-title {
+    font-size: 1.8rem;
+  }
+
+  .product-description {
+    font-size: 0.95rem;
+    color: var(--dark-grayish-blue);
+  }
+
+  .price-section {
+    align-items: center;
+  }
+
+  /* ===== 🛒 Cart Actions ===== */
   .cart-actions {
     flex-direction: column;
-    align-items: stretch;
+    gap: 1rem;
+    width: 100%;
   }
 
   .quantity {
     width: 100%;
     justify-content: space-between;
+    padding: 0.8rem 1rem;
   }
 
   .add-to-cart {
     width: 100%;
-  }
-
-  .navbar {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem 2rem;
-  }
-
-  .ul-link {
-    flex-wrap: wrap;
+    padding: 1rem;
     justify-content: center;
+  }
+
+  /* ===== ⚙ General Adjustments ===== */
+  .ul-link a {
+    font-size: 1rem;
+  }
+
+  h1, h2, h3, h4 {
+    text-align: center;
   }
 }
